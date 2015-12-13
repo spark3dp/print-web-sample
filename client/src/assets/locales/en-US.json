@@ -1,0 +1,10 @@
+{
+	"handleShortcutKey-b": "Create Box",
+	"handleShortcutKey-s": "Create Sphere",
+	"handleShortcutKey-c": "Create Cylinder",
+	"handleShortcutKey-g": "Group Objects",
+	"handleShortcutKey-u": "Ungroup Objects (beta)",
+	"handleShortcutKey-h": "Toggle Solid/Hole",
+	"toggle help view h": "Display/hide help",
+	"test": "tested"
+}

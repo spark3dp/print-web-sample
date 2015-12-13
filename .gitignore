@@ -1,0 +1,10 @@
+.DS_Store
+.idea/
+client/build/
+client/bower_components/
+client/node_modules/
+client/npm-debug.log
+server/npm-debug.log
+server/node_modules/
+server/config.js
+client/src/scripts/config.js

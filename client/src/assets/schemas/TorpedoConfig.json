@@ -1,0 +1,1402 @@
+[
+    {
+        "name" : "support_angle_tol",
+        "user_name" : "Support angle tolerance",
+        "description": "Overhang of a model that is at an angle with the horizontal greater than the tolerance. Overhangs require support.",
+        "type" : "float",
+        "default" : 0.785,
+        "category" : "Support",
+        "unit_type" : "a",
+        "number_validation": [ 0.001, 1.57079 ],
+        "in_use" : true
+    },
+
+    {
+        "name" : "support_contact_tol",
+        "user_name" : "Support contact tolerance",
+        "description": "The standoff for overhang faces from build platform. Will have no effect if less than support bed standoff.",
+        "type" : "float",
+        "default" : 0.0,
+        "category" : "Support",
+        "unit_type" : "l",
+        "number_validation": [ 0.0, 0.3 ],
+        "in_use" : true
+    },
+
+    {
+        "name" : "support_bed_standoff",
+        "user_name" : "Model standoff from platform",
+        "description" : "Model standoff from the print platform (for support structure).",
+        "in_use" : true,
+        "type" : "float",
+        "default" : 0.0,
+        "category" : "Support",
+        "unit_type" : "l",
+        "number_validation": [ 0.0, 0.5 ],
+        "in_use" : true
+    },
+
+    {
+        "name" : "support_sampling_density",
+        "user_name" : "Support sampling density",
+        "description": "Control the density of contact points in the overhang areas. Points will get denser closer to a maximum value of 1.",
+        "type" : "float",
+        "default" : 0.7,
+        "category" : "Support",
+        "number_validation" : [0, 1],
+        "in_use" : true
+    },
+
+    {
+        "name" : "support_layer_height",
+        "user_name" : "Support layer height",
+        "description" : "Support layer height.",
+        "type" : "float",
+        "default" : 0.1,
+        "category" : "Support",
+        "unit_type" : "l",
+        "number_validation": [ 0.01, 0.5 ],
+        "in_use" : true
+    },
+
+    {
+        "name" : "support_max_angle",
+        "user_name" : "Support max angle",
+        "description" : "Support max angle.",
+        "type" : "float",
+        "default" : 0.785,
+        "category" : "Support",
+        "unit_type" : "a",
+        "in_use" : true
+    },
+ 
+    {
+        "name" : "support_clearance",
+        "user_name" : "Support clearance",
+        "description": "A clearance distance between the supports and the physical model. To ensure support posts do not make contact with model.",
+        "type" : "float",
+        "default" : 0.0875,
+        "category" : "Support",
+        "unit_type" : "l",
+        "number_validation": [ 0.01, 0.3 ],
+        "in_use" : true
+    },
+ 
+    {
+        "name" : "support_tip_length",
+        "user_name" : "Support tip length",
+        "description" : "Support tip length.",
+        "type" : "float",
+        "default" : 0.3,
+        "category" : "Support",
+        "unit_type" : "l",
+        "number_validation": [ 0.1, 0.6 ],
+        "in_use" : true
+    },
+ 
+    {
+        "name" : "support_tip_radius",
+        "user_name" : "Support tip radius",
+        "description": "Radius of the tip of supports. Increasing the radius will make the support fuse with more of the model.",
+        "type" : "float",
+        "default" : 0.05,
+        "category" : "Support",
+        "unit_type" : "l",
+        "number_validation": [ 0.01, 0.4 ],
+        "in_use" : true
+    },
+ 
+    {
+        "name" : "support_base_length",
+        "user_name" : "Support base length",
+        "description" : "Support base length.",
+        "type" : "float",
+        "default" : 0.25,
+        "category" : "Support",
+        "unit_type" : "l",
+        "number_validation": [ 0.1, 0.5 ],
+        "in_use" : true
+    },
+ 
+    {
+        "name" : "support_base_radius",
+        "user_name" : "Support base radius",
+        "description": "Base radius of the support posts. The greater the value, more contact with the build plate.",
+        "type" : "float",
+        "default" : 0.25,
+        "category" : "Support",
+        "unit_type" : "l",
+        "number_validation": [ 0.1, 1.0 ],
+        "in_use" : true
+    },
+
+    {
+        "name" : "support_post_radius",
+        "user_name" : "Support post radius",
+        "description" : "Support post radius.",
+        "type" : "float",
+        "default" : 0.2,
+        "category" : "Support",
+        "unit_type" : "l",        
+        "number_validation": [ 0.05, 0.5 ],
+        "in_use" : true
+    },
+
+    {
+        "name" : "support_trunk_radius",
+        "user_name" : "Support trunk radius",
+        "description" : "Support trunk radius.",
+        "type" : "float",
+        "default" : 0.3,
+        "category" : "Support",
+        "unit_type" : "l",        
+        "number_validation": [ 0.05, 2.0 ],
+        "in_use" : true
+    },
+
+    {
+        "name" : "support_tip_penetration_distance",
+        "user_name" : "Support tip offset",
+        "description": "Support tip offset from the model. Move the cone at the point of contact along its axis towards or away from the model.",
+        "type" : "float",
+        "default" : 0.001,
+        "category" : "Support",
+        "unit_type" : "l", 
+        "number_validation": [ -0.1, 0.1 ],
+        "in_use" : true
+    },
+
+    {
+        "name" : "support_object_top_connections",
+        "user_name" : "Support on object top",
+        "description": "Support post ends can land on a model. A non-zero value means posts can land on model.",
+        "type" : "int",
+        "default" : 1,
+        "category" : "Support",
+        "in_use" : false 
+    },
+
+    {
+        "name" : "support_horizontal_connection_size",
+        "user_name" : "Support length horiz. struts",
+        "description" : "Support length of horizontal struts (0 implies no strut).",
+        "type" : "float",
+        "default" : 0.0,
+        "category" : "Support",
+        "unit_type" : "l",
+        "in_use" : true
+    },
+
+    {
+        "name" : "extrusion_width",
+        "user_name" : "Extrusion width",
+        "description" : "Extrusion width.",
+        "type" : "float",
+        "default" : 0.04,
+        "number_validation" : [ 0.04, 0.04 ],
+        "category" : "Extrusion",
+        "unit_type" : "l",
+        "in_use" : true
+    },
+
+    {
+        "name" : "extrusion_height_over_width",
+        "user_name" : "Extrusion height/width",
+        "description" : "Ratio of extrusion height to width.",
+        "type" : "float",
+        "default" : 0.90,
+        "category" : "Extrusion",
+        "in_use" : false
+    },
+
+    {
+        "name" : "perimeter_overlap_ratio",
+        "user_name" : "Perimeter overlap ratio",
+        "description" : "Fractional overlap of adjacent perimeters.",
+        "type" : "float",
+        "default" : 0.25,
+        "number_validation" : [ 0, 1 ],
+        "category" : "Extrusion",
+        "in_use" : true
+    },
+
+    {
+        "name" : "layer_height",
+        "user_name" : "Layer height",
+        "description" : "Height of the layers after the first.",
+        "type" : "float",
+        "default" : 0.02,
+        "number_validation" : [ 0.001, 0.03 ],
+        "category" : "Layer",
+        "unit_type" : "l",
+        "in_use" : true
+    },
+
+    {
+        "name" : "layer_height_first",
+        "user_name" : "Layer 1 height",
+        "description" : "Height of the first layer.",
+        "type" : "float",
+        "default" : 0.02,
+        "number_validation" : [ 0.001, 0.03 ],
+        "category" : "Layer",
+        "unit_type" : "l",
+        "in_use" : true
+    },
+
+    {
+        "name" : "num_perimeters",
+        "user_name" : "Num. perimeters",
+        "description" : "Number of desired perimeters.",
+        "type" : "int",
+        "default" : 1,
+        "number_validation" : [ 0, 10 ],
+        "category" : "Extrusion",
+        "in_use" : true
+    },
+
+    {
+        "name" : "num_top_shells",
+        "user_name" : "Num. top shells",
+        "description" : "Number of top layers with solid infill.",
+        "type" : "int",
+        "default" : 1,
+        "number_validation" : [ 0, 50 ],
+        "category" : "Layer",
+        "in_use" : true
+    },
+
+    {
+        "name" : "num_bottom_shells",
+        "user_name" : "Num. bottom shells",
+        "description" : "Number of bottom layers with solid infill.",
+        "type" : "int",
+        "default" : 1,
+        "number_validation" : [ 0, 50 ],
+        "category" : "Layer",
+        "in_use" : true
+    },
+
+    {
+        "name" : "speed_perimeters_internal",
+        "user_name" : "Internal perimeter speed",
+        "description" : "Internal/middle perimeter speed.",
+        "type" : "float",
+        "default" : 7.0,
+        "number_validation" : [ 1, 25 ],
+        "category" : "Speed",
+        "unit_type" : "l/t",
+        "in_use" : true
+    },
+
+    {
+        "name" : "speed_perimeters_external",
+        "user_name" : "External perimeter speed",
+        "description" : "External perimeter speed.",
+        "type" : "float",
+        "default" : 5.0,
+        "number_validation" : [ 1, 25 ],
+        "category" : "Speed",
+        "unit_type" : "l/t",
+        "in_use" : true
+    },
+
+    {
+        "name" : "speed_sparse_infill",
+        "user_name" : "Sparse infill speed",
+        "description" : "Speed infill speed.",
+        "type" : "float",
+        "default" : 8.0,
+        "number_validation" : [ 1, 25 ],
+        "category" : "Speed",
+        "unit_type" : "l/t",
+        "in_use" : true
+    },
+
+    {
+        "name" : "speed_solid_infill",
+        "user_name" : "Solid infill speed",
+        "description" : "Solid infill speed.",
+        "type" : "float",
+        "default" : 4.0,
+        "number_validation" : [ 1, 25 ],
+        "category" : "Speed",
+        "unit_type" : "l/t",
+        "in_use" : true
+    },
+
+    {
+        "name" : "speed_support_material",
+        "user_name" : "Support infill speed",
+        "description" : "Support infill speed.",
+        "type" : "float",
+        "default" : 7.0,
+        "number_validation" : [ 1, 25 ],
+        "category" : "Speed",
+        "unit_type" : "l/t",
+        "in_use" : true
+    },
+
+    {
+        "name" : "support_num_perimeters",
+        "user_name" : "Support num. perimeters",
+        "description" : "Support number of perimeters.",
+        "type" : "int",
+        "default" : 2,
+        "number_validation" : [ 0, 10 ],
+        "category" : "Support",
+        "in_use" : true
+    },    
+
+    {
+        "name" : "speed_travel",
+        "user_name" : "Travel speed",
+        "description" : "Speed for moves while not extruding.",
+        "type" : "float",
+        "default" : 9.0,
+        "number_validation" : [ 1, 35 ],
+        "category" : "Speed",
+        "unit_type" : "l/t",
+        "in_use" : true
+    },
+
+    {
+        "name" : "speed_first_layer_multiplier",
+        "user_name" : "Model layer 1 speed multiplier",
+        "description" : "Multiply all speeds of the model's first layer by this number.",
+        "type" : "float",
+        "default" : 1.0,
+        "number_validation" : [ 0.1, 2.5 ],
+        "category" : "Speed",
+        "in_use" : true
+    },
+
+    {
+        "name" : "speed_extrude_minimum",
+        "user_name" : "Minimum extrusion speed",
+        "description" : "Minimum speed for successful extrusion.",
+        "type" : "float",
+        "default" : 1.0,
+        "number_validation" : [ 0.1, 25],
+        "category" : "Cooling",
+        "unit_type" : "l/t",
+        "in_use" : true
+    },
+
+    {
+        "name" : "sparse_infill_angle",
+        "user_name" : "Sparse infill angle",
+        "description" : "Infill pattern angle for non-exposed regions.",
+        "type" : "float",
+        "default" : 0,
+        "number_validation" : [ 0, 3.14 ],
+        "category" : "Infill",
+        "unit_type" : "a",
+        "in_use" : true
+    },
+
+    {
+        "name" : "solid_infill_pattern",
+        "user_name" : "Solid infill pattern",
+        "description" : "Infill pattern for exposed surfaces.",
+        "type" : "string",
+        "default" : "Rectilinear",
+        "string_validation" : [ "Rectilinear", "Concentric" ],
+        "category" : "Infill",
+        "in_use" : true
+    },
+
+    {
+        "name" : "solid_infill_angle",
+        "user_name" : "Solid infill angle",
+        "description" : "Infill pattern angle for exposed surfaces.",
+        "type" : "float",
+        "default" : 0,
+        "string_validation" : [ 0, 3.14 ],
+        "category" : "Infill",
+        "unit_type" : "a",
+        "in_use" : true
+    },
+
+    {
+        "name" : "skirt_loops",
+        "user_name" : "Num. skirt/brim loops",
+        "description" : "Number of skirt/brim loops around the object.",
+        "type" : "int",
+        "default" : 2,
+        "number_validation" : [ 0, 10 ],
+        "category" : "Skirt/Brim",
+        "in_use" : true
+    },
+
+    {
+        "name" : "skirt_distance",
+        "user_name" : "Skirt/brim distance",
+        "description" : "Distance of the skirt/brim from the object.",
+        "type" : "float",
+        "default" : 0.5,
+        "number_validation" : [ 0, 25 ],
+        "category" : "Skirt/Brim",
+        "unit_type" : "l",
+        "in_use" : true
+    },
+
+    {
+        "name" : "skirt_layers",
+        "user_name" : "Num. skirt/brim layers",
+        "description" : "Number of layers in the skirt/brim.",
+        "type" : "int",
+        "default" : 0,
+        "number_validation" : [ 0, 10 ],
+        "category" : "Skirt/Brim",
+        "in_use" : false
+    },
+
+    {
+        "name" : "skirt_minimum_extrusion_length",
+        "user_name" : "Skirt/brim min. length",
+        "description" : "Minimum length of extrusion per layer to use for skirt/brim; add loops until this length is reached.",
+        "type" : "float",
+        "default" : 0.0,
+        "number_validation" : [ 0, 50 ],
+        "category" : "Skirt/Brim",
+        "unit_type" : "l",
+        "in_use" : true
+    },
+
+    {
+        "name" : "skirt_num_bottom_layers",
+        "user_name" : "Skirt num. bottom layers",
+        "description" : "Number of bottom layers in the model for determining the skirt outline.",
+        "type" : "int",
+        "default" : 10,
+        "number_validation" : [ 1, 25 ],
+        "category" : "Skirt/Brim",
+        "in_use" : false
+    },    
+
+    {
+        "name" : "start_gcode",
+        "user_name" : "Start G-code",
+        "description" : "G-code to execute before starting print.",
+        "type" : "string",
+        "default" : "",
+        "category" : "Gcode",
+        "in_use" : true
+    },
+
+    {
+        "name" : "end_gcode",
+        "user_name" : "End G-code",
+        "description" : "G-code to execute after finishing print.",
+        "type" : "string",
+        "default" : "",
+        "category" : "Gcode",
+        "in_use" : true
+    },
+
+    {
+        "name" : "layer_change_gcode",
+        "user_name" : "Layer change G-code",
+        "description" : "G-code to execute between layer changes.",
+        "type" : "string",
+        "default" : "",
+        "category" : "Gcode",
+        "in_use" : true
+    },
+
+    {
+        "name" : "verbose_gcode",
+        "user_name" : "Verbose G-code",
+        "description" : "Include comments in G-code output.",
+        "type" : "bool",
+        "default" : false,
+        "category" : "Gcode",
+        "in_use" : true
+    },
+
+    {
+        "name" : "dry_run",
+        "user_name" : "Dry run",
+        "description" : "Don't extrude or heat up the nozzle.",
+        "type" : "bool",
+        "default" : false,
+        "category" : "Gcode",
+        "in_use" : false
+    },
+
+    {
+        "name" : "xyPrecision",
+        "user_name" : "XY precision",
+        "description" : "Digits of precision for XY coordinates in G-code.",
+        "type" : "int",
+        "default" : 3,
+        "number_validation" : [ 2, 6 ],
+        "category" : "Gcode",
+        "in_use" : false
+    },
+
+    {
+        "name" : "zPrecision",
+        "user_name" : "Z precision",
+        "description" : "Digits of precision for Z coordinates in G-code.",
+        "type" : "int",
+        "default" : 3,
+        "number_validation" : [ 2, 6 ],
+        "category" : "Gcode",        
+        "in_use" : false
+    },
+
+    {
+        "name" : "fPrecision",
+        "user_name" : "F precision",
+        "description" : "Digits of precision for F values in G-code.",
+        "type" : "int",
+        "default" : 0,
+        "number_validation" : [ 0, 6 ],
+        "category" : "Gcode",
+        "in_use" : false
+    },
+
+    {
+        "name" : "ePrecision",
+        "user_name" : "E precision",
+        "description" : "Digits of precision for E values in G-code.",
+        "type" : "int",
+        "default" : 5,
+        "number_validation" : [ 3, 8 ],
+        "category" : "Gcode",
+        "in_use" : false
+    },
+
+    {
+        "name" : "support_infill_pattern",
+        "user_name" : "Support infill pattern",
+        "description" : "Infill pattern for support material.",
+        "type" : "string",
+        "default" : "Rectilinear",
+        "string_validation" : [ "Rectilinear", "Honeycomb", "Concentric" ],
+        "category" : "Support",
+        "in_use" : true
+    },
+
+    {
+        "name" : "support_infill_density",
+        "user_name" : "Support infill density",
+        "description" : "Infill density for support material.",
+        "type" : "int",
+        "default" : 50,
+        "number_validation" : [ 0, 100 ],
+        "category" : "Support",
+        "unit_type" : "p",
+        "in_use" : true
+    },
+
+    {
+        "name" : "support_infill_angle",
+        "user_name" : "Support infill angle",
+        "description" : "Infill pattern angle for support material.",
+        "type" : "float",
+        "default" : 0.785,
+        "number_validation" : [ 0, 3.14 ],
+        "category" : "Support",
+        "unit_type" : "a",
+        "in_use" : true
+    },
+
+    {
+        "name" : "extrusion_width_first_layer_multiplier",
+        "user_name" : "Layer 1 extrusion width multiplier",
+        "description" : "Multiply all extrusion widths by this amount when on the first layer.",
+        "type" : "float",
+        "default" : 1.1,
+        "number_validation" : [ 0.4, 2.5 ],
+        "category" : "Extrusion",
+        "in_use" : true
+    },
+
+    {
+        "name" : "extrusion_width_multiplier",
+        "user_name" : "Extrusion width multiplier",
+        "description" : "Multiply all extrusion widths by this amount.",
+        "type" : "float",
+        "default" : 0.9,
+        "number_validation" : [ 0.4, 2.5 ],
+        "category" : "Extrusion",
+        "in_use" : true
+    },
+
+    {
+        "name" : "extrusion_width_perimeters",
+        "user_name" : "Perimeter extrusion width",
+        "description" : "Perimeter extrusion width.",
+        "type" : "float",
+        "default" : 0.04,
+        "number_validation" : [ 0.04, 0.04 ],
+        "category" : "Extrusion",
+        "in_use" : false
+    },
+
+    {
+        "name" : "extrusion_width_sparse_infill",
+        "user_name" : "Sparse infill extrusion width",
+        "description" : "Extrusion width for non-exposed region infill.",
+        "type" : "float",
+        "default" : 0.04,
+        "number_validation" : [ 0.04, 0.04 ],
+        "category" : "Infill",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "extrusion_width_solid_infill",
+        "user_name" : "Solid infill extrusion width",
+        "description" : "Extrusion width for exposed surface infill.",
+        "type" : "float",
+        "default" : 0.04,
+        "number_validation" : [ 0.04, 0.04 ],
+        "category" : "Infill",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "extrusion_width_support_material",
+        "user_name" : "Support infill extrusion width",
+        "description" : "Extrusion width for support material infill.",
+        "type" : "float",
+        "default" : 0.04,
+        "number_validation" : [ 0.04, 0.04 ],
+        "category" : "Support",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "solid_infill_overlap_distance",
+        "user_name" : "Solid infill expand",
+        "description" : "Expand solid infill by this amount to remove seams at corners.",
+        "type" : "float",
+        "default" : 0.4,
+        "number_validation" : [ 0, 5 ],
+        "category" : "Infill",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "min_fill_length",
+        "user_name" : "Min. fill length",
+        "description" : "Fill toolpaths shorter than this length are skipped.",
+        "type" : "float",
+        "default" : 0.01,
+        "number_validation" : [ 0, 0.5 ],
+        "category" : "Infill",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "support_min_fill_length",
+        "user_name" : "Min. fill length for supports",
+        "description" : "Fill toolpaths shorter than this length are skipped in supports.",
+        "type" : "float",
+        "default" : 0,
+        "number_validation" : [ 0, 50 ],
+        "category" : "Infill",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "perimeters_inner_first",
+        "user_name" : "Draw inner perimeters first",
+        "description" : "Draw inner perimeters before outer perimeters.",
+        "type" : "bool",
+        "default" : true,
+        "category" : "Extrusion",
+        "in_use" : true
+    },
+
+    {
+        "name" : "connect_fill_wet_move",
+        "user_name" : "Connect fill wet",
+        "description" : "Whether to extrude while connecting fill lines or just leak.",
+        "type" : "bool",
+        "default" : true,
+        "category" : "Infill",
+        "in_use" : false
+    },
+
+    {
+        "name" : "cross_solid_fill_dry_move",
+        "user_name" : "Retract on solid fill cross",
+        "description" : "Whether to retract when crossing solid fill lines or just leak.",
+        "type" : "bool",
+        "default" : true,
+        "category" : "Infill",
+        "in_use" : false
+    },
+
+    {
+        "name" : "cross_sparse_fill_leaky_move",
+        "user_name" : "Leak on sparse fill cross",
+        "description" : "Whether to stop extruding when crossing sparse fill lines or just continue extruding.",
+        "type" : "bool",
+        "default" : true,
+        "category" : "Infill",
+        "in_use" : false
+    },
+
+    {
+        "name" : "always_retract_between_layers",
+        "user_name" : "Force retract on layer change",
+        "description" : "Whether to force retraction when changing layers.",
+        "type" : "bool",
+        "default" : false,
+        "category" : "Gcode",
+        "in_use" : true
+    },
+
+    {
+        "name" : "disable_fan_first_layers",
+        "user_name" : "Num. layers fan disabled",
+        "description" : "The fan is disabled for the first layers to help adhesion.",
+        "type" : "int",
+        "default" : 1,
+        "number_validation" : [ 0, 10 ],
+        "category" : "Cooling",
+        "in_use" : true
+    },
+
+    {
+        "name" : "min_layer_time",
+        "user_name" : "Min. time per layer",
+        "description" : "Layer times below this value will cause all feed rates to be scaled down.",
+        "type" : "float",
+        "default" : 5.0,
+        "number_validation" : [ 0, 60 ],
+        "category" : "Cooling",
+        "unit_type" : "t",
+        "in_use" : true
+    },
+
+    {
+        "name": "raft_enabled",
+        "user_name": "Raft enabled",
+        "description": "Enable raft.",
+        "type": "bool",
+        "default": false,
+        "category": "Basic",
+        "in_use": true
+    },
+
+    {
+        "name" : "sparse_infill_density",
+        "user_name" : "Sparse infill density",
+        "description" : "Infill density for non-exposed regions.",
+        "type" : "int",
+        "default" : 20,
+        "number_validation" : [ 0, 100 ],
+        "category" : "Basic",
+        "unit_type" : "p",    
+        "in_use" : true
+    },
+
+    {
+        "name" : "sparse_infill_pattern",
+        "user_name" : "Sparse infill pattern",
+        "description" : "Infill pattern for non-exposed regions.",
+        "type" : "string",
+        "default" : "Rectilinear",
+        "string_validation" : [ "Rectilinear", "Honeycomb", "Concentric" ],
+        "category" : "Basic",
+        "in_use" : true
+    },
+
+    {
+        "name" : "raft_base_num_layers",
+        "user_name" : "Num. raft base layers",
+        "description" : "Number of raft layers to use as the base (thick extrusions in grid pattern).",
+        "type" : "int",
+        "default" : 1,
+        "number_validation" : [ 1, 10 ],
+        "category" : "Raft",
+        "in_use" : false
+    },
+
+    {
+        "name" : "raft_base_density",
+        "user_name" : "Raft base fill density",
+        "description" : "Fill density to use for the raft base (thick extrusions in grid pattern).",
+        "type" : "int",
+        "default" : 70,
+        "number_validation" : [ 1, 100 ],
+        "category" : "Raft",
+        "unit_type" : "p",
+        "in_use" : true
+    },
+
+    {
+        "name" : "raft_base_angle",
+        "user_name" : "Raft infill angle",
+        "description" : "Fill angle for the raft base (thick extrusions in grid pattern) in degrees.",
+        "type" : "float",
+        "default" : 0,
+        "number_validation" : [ 0, 3.14 ],
+        "category" : "Raft",
+        "unit_type" : "a",
+        "in_use" : false
+    },
+
+    {
+        "name" : "raft_base_layer_height",
+        "user_name" : "Raft base height",
+        "description" : "Height of the raft base layers.",
+        "type" : "float",
+        "default" : 0.03,
+        "number_validation" : [ 0.01, 0.03 ],
+        "category" : "Raft",
+        "unit_type" : "l",
+        "in_use" : true
+    },
+
+    {
+        "name" : "raft_base_extrusion_width",
+        "user_name" : "Raft base extrusion width",
+        "description" : "Raft base layer extrusion width.",
+        "type" : "float",
+        "default" : 0.1,
+        "number_validation" : [ 0.04, 0.5 ],
+        "category" : "Raft",
+        "unit_type" : "l",
+        "in_use" : true
+    },
+
+    {
+        "name" : "raft_base_num_perimeters",
+        "user_name" : "Num. raft base perimeters",
+        "description" : "Number of outer perimeters for raft base layers.",
+        "type" : "int",
+        "default" : 0,
+        "number_validation" : [ 0, 10],
+        "category" : "Raft",
+        "in_use" : false
+    },
+
+    {
+        "name" : "raft_interface_angle",
+        "user_name" : "Raft interface infill angle",
+        "description" : "Infill angle for raft interface layers.",
+        "type" : "float",
+        "default" : 0.785,
+        "number_validation" : [ 0, 3.14 ],
+        "category" : "Raft",
+        "unit_type" : "a",
+        "in_use" : false
+    },
+
+    {
+        "name" : "raft_interface_density",
+        "user_name" : "Raft interface infill density",
+        "description" : "Raft interface layers infill density.",
+        "type" : "int",
+        "default" : 30,
+        "number_validation" : [ 1, 100 ],
+        "category" : "Raft",
+        "unit_type" : "p",
+        "in_use" : true
+    },
+
+    {
+        "name" : "raft_interface_num_layers",
+        "user_name" : "Num. raft interface layers",
+        "description" : "Number of raft interface layers.",
+        "type" : "int",
+        "default" : 1,
+        "number_validation" : [ 0, 10 ],
+        "category" : "Raft",
+        "in_use" : true
+    },
+
+    {
+        "name" : "raft_interface_layer_height",
+        "user_name" : "Raft interface height",
+        "description" : "Raft interface layer height.",
+        "type" : "float",
+        "default" : 0.02,
+        "number_validation" : [ 0.01, 0.03 ],
+        "category" : "Raft",
+        "unit_type" : "l",
+        "in_use" : true
+    },
+
+    {
+        "name" : "raft_interface_extrusion_width",
+        "user_name" : "Raft interface extrusion width",
+        "description" : "Raft interface extrusion width.",
+        "type" : "float",
+        "default" : 0.04,
+        "number_validation" : [ 0.04, 0.04 ],
+        "category" : "Raft",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "raft_interface_num_perimeters",
+        "user_name" : "Num. raft interface perimeters",
+        "description" : "Number of outer perimeters for raft interface layers.",
+        "type" : "int",
+        "default" : 0,
+        "number_validation" : [ 0, 10],
+        "category" : "Raft",
+        "in_use" : false
+    },
+
+    {
+        "name" : "raft_outer_border",
+        "user_name" : "Raft border distance",
+        "description" : "Raft outer border distance from model.",
+        "type" : "float",
+        "default" : 0.5,
+        "number_validation" : [ 0.2, 5 ],
+        "category" : "Raft",
+        "unit_type" : "l",
+        "in_use" : true
+    },
+
+    {
+        "name" : "raft_surface_angle",
+        "user_name" : "Raft surface infill angle",
+        "description" : "Infill angle for raft surface layers.",
+        "type" : "float",
+        "default" : 0,
+        "number_validation" : [ 0, 3.14 ],
+        "category" : "Raft",
+        "unit_type" : "a",
+        "in_use" : false
+    },
+
+    {
+        "name" : "raft_surface_density",
+        "user_name" : "Raft surface infill density",
+        "description" : "Raft surface layers infill density.",
+        "type" : "int",
+        "default" : 100,
+        "number_validation" : [ 1, 100 ],
+        "category" : "Raft",
+        "unit_type" : "p",
+        "in_use" : false
+    },
+
+    {
+        "name" : "raft_surface_num_layers",
+        "user_name" : "Num. raft surface layers",
+        "description" : "Number of raft surface layers.",
+        "type" : "int",
+        "default" : 2,
+        "number_validation" : [ 0, 10 ],
+        "category" : "Raft",
+        "in_use" : true
+    },
+
+    {
+        "name" : "raft_surface_layer_height",
+        "user_name" : "Raft surface height",
+        "description" : "Height of the raft surface layers.",
+        "type" : "float",
+        "default" : 0.02,
+        "number_validation" : [ 0.01, 0.03 ],
+        "category" : "Raft",
+        "unit_type" : "l",
+        "in_use" : true
+    },
+
+    {
+        "name" : "raft_surface_extrusion_width",
+        "user_name" : "Raft surface extrusion width",
+        "description" : "Extrusion width for raft surface layers.",
+        "type" : "float",
+        "default" : 0.04,
+        "number_validation" : [ 0.04, 0.04 ],
+        "category" : "Raft",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "raft_surface_num_perimeters",
+        "user_name" : "Num. raft surface perimeters",
+        "description" : "Number of outer perimeters for raft surface layers.",
+        "type" : "int",
+        "default" : 2,
+        "number_validation" : [ 0, 10],
+        "category" : "Raft",
+        "in_use" : false
+    },
+
+    {
+        "name" : "raft_num_bottom_layers",
+        "user_name" : "Raft outline num. layers",
+        "description" : "Number of bottom layers in the model for determining the raft outline.",
+        "type" : "int",
+        "default" : 10,
+        "number_validation" : [ 1, 25 ],
+        "category" : "Raft",
+        "in_use" : false
+    },    
+
+    {
+        "name" : "raft_zbump",
+        "user_name" : "Raft Z-bump",
+        "description" : "Distance to raise model surfaces that contact the raft to decrease adhesion.",
+        "type" : "float",
+        "default" : 0.03,
+        "number_validation" : [ 0, 0.1 ],
+        "category" : "Raft",
+        "unit_type" : "l",
+        "in_use" : true
+    },
+
+    {
+        "name" : "raft_first_layer_speed",
+        "user_name" : "Raft layer 1 speed",
+        "description" : "Speed for first raft layer.",
+        "type" : "float",
+        "default" : 1,
+        "number_validation" : [ 0.1, 10 ],
+        "category" : "Speed",
+        "unit_type" : "l/t",
+        "in_use" : true
+    },
+
+    {
+        "name" : "raft_other_layers_speed",
+        "user_name" : "Raft layers 2+ speeds",
+        "description" : "Speed for raft layers greater than #1.",
+        "type" : "float",
+        "default" : 7,
+        "number_validation" : [ 1, 25 ],
+        "category" : "Speed",
+        "unit_type" : "l/t",
+        "in_use" : true
+    },    
+
+    {
+        "name" : "support_zbump",
+        "user_name" : "Support Z-bump",
+        "description" : "Distance to raise model surfaces that contact supports to decrease adhesion.",
+        "type" : "float",
+        "default" : 0.03,
+        "category" : "Support",
+        "in_use" : false
+    },
+
+    {
+        "name" : "support_zbump_expand",
+        "user_name" : "Support Z-bump expand",
+        "description" : "Distance in XY to expand the Z-bump support contact interfaces.",
+        "type" : "float",
+        "default" : 0.1,
+        "category" : "Support",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "layerlocking_perim_enable",
+        "user_name" : "Perim. layerlocking enabled",
+        "description" : "Turns on 5-perimeter layer-locking algorithm.",
+        "type" : "bool",
+        "default" : false,
+        "category" : "Layer locking",
+        "in_use" : false
+    },
+
+    {
+        "name" : "layerlocking_perim_depth",
+        "user_name" : "Layerlocking depth count",
+        "description" : "How many layers to try & lock together (must be even).",
+        "in_use" : true,
+        "type" : "int",
+        "default" : 4,
+        "category" : "Layer locking",
+        "in_use" : false
+    },
+    
+    {
+        "name" : "layerlock_infill_width_skinny",
+        "user_name" : "Layer-lock infill width (skinny)",
+        "description" : "Bead width of the skinniest segment in the fill layerlock sequence.",
+        "type" : "float",
+        "default" : 0.4,
+        "category" : "Layer locking",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "layerlock_infill_width_medium",
+        "user_name" : "Layer-lock infill width (medium)",
+        "description" : "Bead width of the middle segment in the fill layerlock sequence.",
+        "type" : "float",
+        "default" : 0.8,
+        "category" : "Layer locking",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "layerlock_infill_width_thick",
+        "user_name" : "Layer-lock infill width (thick)",
+        "description" : "Bead width of the thickest segment in the fill layerlock sequence.",
+        "type" : "float",
+        "default" : 2.4,
+        "category" : "Layer locking",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "layerlock_infill_seg_length",
+        "user_name" : "Layer-lock infill segment length",
+        "description" : "How long half the zig-zag is.",
+        "type" : "float",
+        "default" : 2.4,
+        "category" : "Layer locking",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "perim_wipe_enabled",
+        "user_name" : "Perim. wipe enabled",
+        "description" : "On closed-loop toolpaths, performs a forward-back wipe operation along the loop at the end of the path.",
+        "type" : "bool",
+        "default" : false,
+        "category" : "Perimeter wipe",
+        "in_use" : false
+    },
+
+    {
+        "name" : "perim_wipe_fwd_distance",
+        "user_name" : "Perimeter wipe forward distance",
+        "description" : "Distance forward to perform perimeter wipe.",
+        "type" : "float",
+        "default" : 0.3,
+        "category" : "Perimeter wipe",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "perim_wipe_rev_distance",
+        "user_name" : "Perimeter wipe reverse distance",
+        "description" : "Distance backwards to perform perimeter wipe.",
+        "type" : "float",
+        "default" : 0.4,
+        "category" : "Perimeter wipe",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "perim_wipe_fwd_speed",
+        "user_name" : "Perimeter wipe forward speed",
+        "description" : "Speed forward to perform perimeter wipe.",
+        "type" : "float",
+        "default" : 4,
+        "category" : "Perimeter wipe",
+        "unit_type" : "l/t",
+        "in_use" : false
+    },
+
+    {
+        "name" : "perim_wipe_rev_speed",
+        "user_name" : "Perimeter wipe reverse speed",
+        "description" : "Speed backwards to perform perimeter wipe.",
+        "type" : "float",
+        "default" : 5,
+        "category" : "Perimeter wipe",
+        "unit_type" : "l/t",
+        "in_use" : false
+    },
+
+    {
+        "name" : "coast_enabled",
+        "user_name" : "Coast enabled",
+        "description" : "Enable coasting with no extrusion for the last chunk of a bead.",
+        "type" : "bool",
+        "default" : false,
+        "category" : "Coast",
+        "in_use" : false
+    },
+
+    {
+        "name" : "coast_volume",
+        "user_name" : "Coast volume",
+        "description" : "Approximate volume that comes out of the extruder after turning it off (cm^3).",
+        "type" : "float",
+        "default" : 0.1,
+        "category" : "Coast",
+        "unit_type" : "lll",
+        "in_use" : false
+    },
+
+    {
+        "name" : "dwell_enabled",
+        "user_name" : "Dwell enabled",
+        "description" : "Lets the machine wait at the beginning of a bead for a split-second after turning on the extruder.",
+        "type" : "bool",
+        "default" : false,
+        "category" : "Dwell",
+        "in_use" : false
+    },
+
+    {
+        "name" : "dwell_time",
+        "user_name" : "Dwell time",
+        "description" : "Approximate time lag before material starts coming from the extruder after turning it on (s).",
+        "type" : "float",
+        "default" : 0.2,
+        "category" : "Dwell",
+        "in_use" : false
+    },
+
+    {
+        "name" : "downsample_min_length",
+        "user_name" : "Min. downsampling deviation",
+        "description" : "Minimum deviation of a point from its toolpath for it to avoid removal for downsampling.",
+        "type" : "float",
+        "default" : 0.001,
+        "category" : "Extrusion",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "bridging_enabled",
+        "user_name" : "Bridging enabled",
+        "description" : "Look for overhanging regions that can be bridged and handle them differently.",
+        "type" : "bool",
+        "default" : true,
+        "category" : "Bridging",
+        "in_use" : true
+    },
+
+    {
+        "name" : "bridge_anchor_depth",
+        "user_name" : "Bridge anchor depth",
+        "description" : "Distance between the start of the bridge and the beginning of the anchor used to calculating bridging.",
+        "type" : "float",
+        "default" : 0.08,
+        "number_validation" : [ 0.04, 0.4 ],
+        "category" : "Bridging",
+        "unit_type" : "l",
+        "in_use" : true
+    },
+
+    {
+        "name" : "bridge_test_line_spacing",
+        "user_name" : "Bridge test line spacing",
+        "description" : "Spacing between bridging test lines (multiple of extrusion width); used to find the bridging direction.",
+        "type" : "float",
+        "default" : 0.5,
+        "number_validation" : [ 0.2, 5 ],
+        "category" : "Bridging",
+        "in_use" : false
+    },
+
+    {
+        "name" : "bridge_test_angle_spacing",
+        "user_name" : "Bridge test angle spacing",
+        "description" : "Spacing between bridging test angles; used to find the bridging direction.",
+        "type" : "float",
+        "default" : 0.0174,
+        "number_validation" : [ 0.01, 1.57 ],
+        "category" : "Bridging",
+        "unit_type" : "a",
+        "in_use" : false
+    },
+
+    {
+        "name" : "bridge_extrusion_width_multiplier",
+        "user_name" : "Bridge extrusion width multiplier",
+        "description" : "Multiply extrusion widths by this amount for bridges.",
+        "type" : "float",
+        "default" : 1.0,
+        "number_validation" : [ 0.4, 2.5 ],
+        "category" : "Bridging",
+        "in_use" : true
+    },
+
+    {
+        "name" : "speed_bridge",
+        "user_name" : "Bridge speed",
+        "description" : "Feed rate for bridges.",
+        "type" : "float",
+        "default" : 3,
+        "number_validation" : [ 1, 25 ],
+        "category" : "Speed",
+        "unit_type" : "l/t",
+        "in_use" : true
+    },
+ 
+    {
+        "name" : "prime_extrusion_multiplier",
+        "user_name" : "Prime extrusion multiplier",
+        "description" : "Multiply extrusion amounts by this amount for the priming sequence after the nozzle reaches temperature and before a print starts.",
+        "type" : "float",
+        "default" : 2,
+        "number_validation" : [ 1, 10 ],
+        "category" : "Prime",
+        "in_use" : true
+    },
+
+    {
+        "name" : "prime_enabled",
+        "user_name" : "Nozzle priming enabled",
+        "description" : "Enable the nozzle priming process which extrudes an amount of plastic before starting the model to get it flowing smoothly.",
+        "type" : "bool",
+        "default" : true,
+        "category" : "Prime",
+        "in_use" : true
+    },
+
+    {
+        "name" : "prime_dist_from_model",
+        "user_name" : "Prime distance from model",
+        "description" : "Create the prime toolpath this far from the model.",
+        "type" : "float",
+        "default" : 1,
+        "category" : "Prime",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "prime_min_dist_from_edge",
+        "user_name" : "Min. prime bed distance",
+        "description" : "Create the prime toolpath at least this far from the bed edge.",
+        "type" : "float",
+        "default" : 0.5,
+        "category" : "Prime",
+        "unit_type" : "l",
+        "in_use" : false
+    },
+
+    {
+        "name" : "prime_length",
+        "user_name" : "Prime distance",
+        "description" : "Create the prime toolpath this long.",
+        "type" : "float",
+        "default" : 10,
+        "number_validation" : [ 1, 30 ],
+        "category" : "Prime",
+        "unit_type" : "l",
+        "in_use" : true
+    }
+]
+

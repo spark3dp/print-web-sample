@@ -1,0 +1,784 @@
+[
+    {
+        "name": "support_angle_tol",
+        "user_name": "Support angle tolerance",
+        "description": "Overhang of a model that is at an angle with the horizontal greater than the tolerance. Overhangs require support.",
+        "type": "float",
+        "default": 1.0472,
+        "category": "Support",
+        "unit_type": "a",
+        "number_validation": [ 0.001, 1.57079 ]
+    },
+
+    {
+        "name": "support_contact_tol",
+        "user_name": "Support contact tolerance",
+        "description": "The standoff for overhang faces from build platform. Will have no effect if less than support_bed_standoff.",
+        "type": "float",
+        "default": 0.0,
+        "category": "Support",
+        "unit_type": "l",
+        "number_validation": [ 0.0, 0.3 ],
+        "in_use": false
+    },
+
+    {
+        "name": "support_bed_standoff",
+        "user_name": "Support bed standoff",
+        "description": "Model standoff from the print platform (for support structure).",
+        "type": "float",
+        "default": 0.3,
+        "category": "Support",
+        "unit_type": "l",
+        "number_validation": [ 0.0, 0.5 ]
+    },
+
+    {
+        "name": "support_sampling_density",
+        "user_name": "Support sampling density",
+        "description": "Control the density of contact points in the overhang areas. Points will get denser closer to a maximum value of 1.",
+        "type": "float",
+        "default": 0.8,
+        "category": "Support",
+        "number_validation": [ 0, 1 ]
+    },
+
+    {
+        "name": "support_layer_height",
+        "user_name": "Support layer height",
+        "description": "Support layer height, no longer in use.",
+        "type": "float",
+        "default": 0.0025,
+        "category": "Support",
+        "unit_type": "l",
+        "number_validation": [ 0.001, 0.01 ],
+        "in_use": false
+    },
+
+    {
+        "name": "support_max_angle",
+        "user_name": "Support max angle",
+        "description": "Support max angle",
+        "type": "float",
+        "default": 0.7854,
+        "category": "Support",
+        "unit_type": "a",
+        "in_use": false
+    },
+
+    {
+        "name": "support_clearance",
+        "user_name": "Support clearance",
+        "description": "A clearance distance between the supports and the physical model. To ensure support posts do not make contact with model.",
+        "type": "float",
+        "default": 0.01,
+        "category": "Support",
+        "unit_type": "l",
+        "number_validation": [ 0.001, 0.2 ]
+    },
+
+    {
+        "name": "support_tip_length",
+        "user_name": "Support tip length",
+        "description": "Length of tip cones. For fixed tip radius, the tip cones will get slender as length increases.",
+        "type": "float",
+        "default": 0.2,
+        "category": "Support",
+        "unit_type": "l",
+        "number_validation": [ 0.05, 0.5 ]
+    },
+
+    {
+        "name": "support_tip_radius",
+        "user_name": "Support tip radius",
+        "description": "Radius of the tip of supports. Increasing the radius will make the support fuse with more of the model.",
+        "type": "float",
+        "default": 0.0125,
+        "category": "Support",
+        "unit_type": "l",
+        "number_validation": [ 0.001, 0.1 ]
+    },
+
+    {
+        "name": "support_base_length",
+        "user_name": "Support base length",
+        "description": "Height of the posts from the base.",
+        "type": "float",
+        "default": 0.25,
+        "category": "Support",
+        "unit_type": "l",
+        "number_validation": [ 0.01, 0.5 ]
+    },
+
+    {
+        "name": "support_base_radius",
+        "user_name": "Support base radius",
+        "description": "Base radius of the support posts. The greater the value, the more contact with the build plate.",
+        "type": "float",
+        "default": 0.25,
+        "category": "Support",
+        "unit_type": "l",
+        "number_validation": [ 0.01, 0.5 ]
+    },
+
+    {
+        "name": "support_post_radius",
+        "user_name": "Support post radius",
+        "description": "Radius of the support posts. Controls the thickness of the posts.",
+        "type": "float",
+        "default": 0.05,
+        "category": "Support",
+        "unit_type": "l",
+        "number_validation": [ 0.01, 0.2 ]
+    },
+
+    {
+        "name": "support_trunk_radius",
+        "user_name": "Support trunk radius",
+        "description": "Radius of the trunk supports.",
+        "type": "float",
+        "default": 0.2,
+        "category": "Support",
+        "unit_type": "l",
+        "number_validation": [ 0.01, 1.0 ]
+    },
+
+    {
+        "name": "support_tip_penetration_distance",
+        "user_name": "Support tip offset",
+        "description": "Support tip offset from the model. Move the cone at the point of contact along its axis towards or away from the model.",
+        "type": "float",
+        "default": -0.0025,
+        "category": "Support",
+        "unit_type": "l",
+        "number_validation": [ -0.1, 0.1 ],
+        "in_use": true
+    },
+
+    {
+        "name": "support_object_top_connections",
+        "user_name": "Support on object top",
+        "description": "Support post ends can land on a model?. A non-zero value means posts can land on model.",
+        "type": "int",
+        "default": 1,
+        "category": "Support",
+        "in_use": false
+    },
+
+    {
+        "name": "support_horizontal_connection_size",
+        "user_name": "Support length of horizontal struts",
+        "description": "Support length of horizontal struts (0 implies no strut).",
+        "type": "float",
+        "default": 0.0,
+        "category": "Support",
+        "unit_type": "l",
+        "in_use": false
+    },
+
+    {
+        "name": "layer_height",
+        "user_name": "Layer height",
+        "description": "Height of the layers after the first",
+        "type": "float",
+        "default": 0.0025,
+        "category": "Basic",
+        "unit_type": "l"
+    },
+
+    {
+        "name": "layer_height_first",
+        "user_name": "First layer height",
+        "description": "Height of the first layer.",
+        "type": "float",
+        "default": 0.2,
+        "unit_type": "l"
+    },
+
+    {
+        "name": "img_width",
+        "user_name": "Image width",
+        "description": "Width of the projector image.",
+        "type": "int",
+        "default": 1280,
+        "category": "Images",
+        "in_use": false
+    },
+
+    {
+        "name": "img_height",
+        "user_name": "Image height",
+        "description": "Height of the projector image.",
+        "type": "int",
+        "default": 800,
+        "category": "Images",
+        "in_use": false
+    },
+
+    {
+        "name": "brightness_blur_radius",
+        "user_name": "Blur radius",
+        "description": "XXX",
+        "type": "int",
+        "default": 12,
+        "category": "Images",
+        "in_use": false
+    },
+
+    {
+        "name": "antialias_image_boundary",
+        "user_name": "Antialias image boundary",
+        "description": "Edge smoothing.",
+        "type": "bool",
+        "default": true,
+        "category": "General"
+    },
+ 
+    {
+        "name": "variable_strength_exposure",
+        "user_name": "Variable strength exposure",
+        "description": "Grayscale image. Takes effect only if antialias is true.",
+        "type": "bool",
+        "default": false,
+        "category": "General"
+    },
+ 
+    {
+        "name": "use_rotation_homing_for_approach",
+        "user_name": "Use rotation homing for approach",
+        "description": "Trigger homing sensor every rotation.",
+        "type": "bool",
+        "default": false,
+        "category": "General"
+    },
+ 
+    {
+        "name": "brightness_input_min",
+        "user_name": "Input min",
+        "description": "XXX",
+        "type": "float",
+        "default": 0.01,
+        "in_use": false
+    },
+
+    {
+        "name": "brightness_input_max",
+        "user_name": "Input max",
+        "description": "XXX",
+        "type": "float",
+        "default": 0.25,
+        "category": "Images",
+        "in_use": false
+    },
+
+    {
+        "name": "brightness_output_min",
+        "user_name": "Output min",
+        "description": "Minimum value for pixel brightness.",
+        "type": "float",
+        "default": 1.0,
+        "category": "Images",
+        "in_use": false
+    },
+
+    {
+        "name": "brightness_output_max",
+        "user_name": "Output max",
+        "description": "Maximum value for pixel brightness.",
+        "type": "float",
+        "default": 0.7,
+        "category": "Images",
+        "in_use": false
+    },
+
+    {
+        "name": "first_layer_wait_before_exposure",
+        "user_name": "Wait (before exposure)",
+        "description": "First layer wait before exposure.",
+        "type": "float",
+        "default": 5,
+        "category": "First Layer",
+        "unit_type": "t"
+    },
+
+    {
+        "name": "first_layer_exposure_time",
+        "user_name": "Exposure time",
+        "description": "First layer exposure time.",
+        "type": "float",
+        "default": 10,
+        "category": "First Layer",
+        "unit_type": "t"
+    },
+
+    {
+        "name": "first_layer_separation_slide_velocity",
+        "user_name": "Separation slide velocity",
+        "description": "First layer separation slide velocity.",
+        "type": "float",
+        "default": 4,
+        "category": "First Layer",
+        "unit_type": "/t"
+    },
+
+    {
+        "name": "first_layer_z-axis_overlift",
+        "user_name": "Z-axis overlift",
+        "description": "First layer Z-axis overlift.",
+        "type": "float",
+        "default": 0.2, 
+        "category": "First Layer",
+        "unit_type": "l"
+    },
+
+    {
+        "name": "first_layer_separation_z-axis_velocity",
+        "user_name": "Separation Z-axis velocity",
+        "description": "First layer separation Z-axis velocity.",
+        "type": "float",
+        "default": 0.1, 
+        "category": "First Layer",
+        "unit_type": "l/t"
+    },
+
+    {
+        "name": "first_layer_approach_slide_velocity",
+        "user_name": "Approach slide velocity",
+        "description": "First layer approach slide velocity.",
+        "type": "float",
+        "default": 4, 
+        "category": "First Layer",
+        "unit_type": "/t"
+    },
+
+    {
+        "name": "first_layer_approach_z-axis_velocity",
+        "user_name": "Approach Z-axis velocity",
+        "description": "First layer approach Z-axis velocity.",
+        "type": "float",
+        "default": 0.1, 
+        "category": "First Layer",
+        "unit_type": "l/t"
+    },
+
+    {
+        "name": "first_layer_angle_of_rotation",
+        "user_name": "Angle of rotation",
+        "description": "First layer angle of rotation.",
+        "type": "float",
+        "default": 1.047197551196598, 
+        "category": "First Layer",
+        "unit_type": "a"
+    },
+
+    {
+        "name": "first_layer_overpress",
+        "user_name": "Overpress",
+        "description": "First layer overpress.",
+        "type": "float",
+        "default": 0, 
+        "category": "First Layer",
+        "unit_type": "l"
+    },
+
+    {
+        "name": "first_layer_overpress_velocity",
+        "user_name": "Overpress velocity",
+        "description": "First layer overpress velocity.",
+        "type": "float",
+        "default": 0.15, 
+        "category": "First Layer",
+        "unit_type": "l/t"
+    },
+
+    {
+        "name": "first_layer_wait_after_overpress",
+        "user_name": "Wait (after overpress)",
+        "description": "First layer wait (after overpress).",
+        "type": "float",
+        "default": 0,
+        "category": "First Layer",
+        "unit_type": "t"
+    },
+
+    {
+        "name": "first_layer_overpress_return_velocity",
+        "user_name": "Overpress return velocity",
+        "description": "First layer overpress return velocity.",
+        "type": "float",
+        "default": 0.15, 
+        "category": "First Layer",
+        "unit_type": "l/t"
+    },
+
+    {
+        "name": "first_layer_separation_slide_maximum_jerk",
+        "user_name": "Separation slide maximum jerk",
+        "description": "First layer separation slide maximum jerk.",
+        "type": "float",
+        "default": 80.80874436733745, 
+        "category": "First Layer",
+        "unit_type": "a/ttt"
+    },
+
+    {
+        "name": "first_layer_separation_z-axis_maximum_jerk",
+        "user_name": "Separation Z-axis maximum jerk",
+        "description": "First layer separation Z-axis maximum jerk.",
+        "type": "float",
+        "default": 0.0463,
+        "category": "First Layer",
+        "unit_type": "l/ttt"
+    },
+
+    {
+        "name": "first_layer_approach_slide_maximum_jerk",
+        "user_name": "Approach slide maximum jerk",
+        "description": "First layer approach slide maximum jerk.",
+        "type": "float",
+        "default": 80.80874436733745,
+        "category": "First Layer",
+        "unit_type": "a/ttt"
+    },
+
+    {
+        "name": "first_layer_approach_z-axis_maximum_jerk",
+        "user_name": "Approach Z-axis maximum jerk",
+        "description": "First layer approach Z-axis maximum jerk.",
+        "type": "float",
+        "default": 0.0463,
+        "category": "First Layer",
+        "unit_type": "l/ttt"
+    },
+
+    {
+        "name": "burn-in_layer_burn_in_layers",
+        "user_name": "Burn in layers",
+        "description": "Burn in layers.",
+        "type": "int",
+        "default": 4,
+        "category": "Burn-in Layer"
+    },
+
+    {
+        "name": "burn-in_layer_wait_before_exposure",
+        "user_name": "Wait (before exposure)",
+        "description": "Burn-in layer wait before exposure.",
+        "type": "float",
+        "default": 5,
+        "category": "Burn-in Layer",
+        "unit_type": "t"
+    },
+
+    {
+        "name": "burn-in_layer_exposure_time",
+        "user_name": "Exposure time",
+        "description": "Burn-in layer exposure time.",
+        "type": "float",
+        "default": 4,
+        "category": "Burn-in Layer",
+        "unit_type": "t"
+    },
+
+    {
+        "name": "burn-in_layer_separation_slide_velocity",
+        "user_name": "Separation slide velocity",
+        "description": "Burn-in layer separation slide velocity.",
+        "type": "float",
+        "default": 4,
+        "category": "Burn-in Layer",
+        "unit_type": "/t"
+    },
+
+    {
+        "name": "burn-in_layer_z-axis_overlift",
+        "user_name": "Z-axis overlift",
+        "description": "Burn-in layer Z-axis overlift.",
+        "type": "float",
+        "default": 0.2, 
+        "category": "Burn-in Layer",
+        "unit_type": "l"
+    },
+
+    {
+        "name": "burn-in_layer_separation_z-axis_velocity",
+        "user_name": "Separation Z-axis velocity",
+        "description": "Burn-in layer separation Z-axis velocity.",
+        "type": "float",
+        "default": 0.1, 
+        "category": "Burn-in Layer",
+        "unit_type": "l/t"
+    },
+
+    {
+        "name": "burn-in_layer_approach_slide_velocity",
+        "user_name": "Approach slide velocity",
+        "description": "Burn-in layer approach slide velocity.",
+        "type": "float",
+        "default": 4, 
+        "category": "Burn-in Layer",
+        "unit_type": "/t"
+    },
+
+    {
+        "name": "burn-in_layer_approach_z-axis_velocity",
+        "user_name": "Approach Z-axis velocity",
+        "description": "Burn-in layer approach Z-axis velocity.",
+        "type": "float",
+        "default": 0.1, 
+        "category": "Burn-in Layer",
+        "unit_type": "l/t"
+    },
+
+    {
+        "name": "burn-in_layer_angle_of_rotation",
+        "user_name": "Angle of rotation",
+        "description": "Burn-in layer angle of rotation.",
+        "type": "float",
+        "default": 1.047197551196598, 
+        "category": "Burn-in Layer",
+        "unit_type": "a"
+    },
+
+    {
+        "name": "burn-in_layer_overpress",
+        "user_name": "Overpress",
+        "description": "Burn-in layer overpress.",
+        "type": "float",
+        "default": 0, 
+        "category": "Burn-in Layer",
+        "unit_type": "l"
+    },
+
+    {
+        "name": "burn-in_layer_overpress_velocity",
+        "user_name": "Overpress velocity",
+        "description": "Burn-in layer overpress velocity.",
+        "type": "float",
+        "default": 0.15, 
+        "category": "Burn-in Layer",
+        "unit_type": "l/t"
+    },
+
+    {
+        "name": "burn-in_layer_wait_after_overpress",
+        "user_name": "Wait (after overpress)",
+        "description": "Burn-in layer wait (after overpress).",
+        "type": "float",
+        "default": 0,
+        "category": "Burn-in Layer",
+        "unit_type": "t"
+    },
+
+    {
+        "name": "burn-in_layer_overpress_return_velocity",
+        "user_name": "Overpress return velocity",
+        "description": "Burn-in layer overpress return velocity.",
+        "type": "float",
+        "default": 0.15, 
+        "category": "Burn-in Layer",
+        "unit_type": "l/t"
+    },
+
+    {
+        "name": "burn-in_layer_separation_slide_maximum_jerk",
+        "user_name": "Separation slide maximum jerk",
+        "description": "Burn-in layer separation slide maximum jerk.",
+        "type": "float",
+        "default": 80.80874436733745, 
+        "category": "Burn-in Layer",
+        "unit_type": "a/ttt"
+    },
+
+    {
+        "name": "burn-in_layer_separation_z-axis_maximum_jerk",
+        "user_name": "Separation Z-axis maximum jerk",
+        "description": "Burn-in layer separation Z-axis maximum jerk.",
+        "type": "float",
+        "default": 0.0463,
+        "category": "Burn-in Layer",
+        "unit_type": "l/ttt"
+    },
+
+    {
+        "name": "burn-in_layer_approach_slide_maximum_jerk",
+        "user_name": "Approach slide maximum jerk",
+        "description": "Burn-in layer approach slide maximum jerk.",
+        "type": "float",
+        "default": 80.80874436733745,
+        "category": "Burn-in Layer",
+        "unit_type": "a/ttt"
+    },
+
+    {
+        "name": "burn-in_layer_approach_z-axis_maximum_jerk",
+        "user_name": "Approach Z-axis maximum Jerk",
+        "description": "Burn-in layer approach Z-axis maximum jerk.",
+        "type": "float",
+        "default": 0.0463,
+        "category": "Burn-in Layer",
+        "unit_type": "l/ttt"
+    },
+    
+    {
+        "name": "model_layer_wait_before_exposure",
+        "user_name": "Wait (before exposure)",
+        "description": "Model layer wait before exposure.",
+        "type": "float",
+        "default": 1,
+        "category": "Model Layer",
+        "unit_type": "t"
+    },
+
+    {
+        "name": "model_layer_exposure_time",
+        "user_name": "Exposure time",
+        "description": "Model layer exposure time.",
+        "type": "float",
+        "default": 2.5,
+        "category": "Model Layer",
+        "unit_type": "t"
+    },
+
+    {
+        "name": "model_layer_separation_slide_velocity",
+        "user_name": "Separation slide velocity",
+        "description": "Model layer separation slide velocity.",
+        "type": "float",
+        "default": 10,
+        "category": "Model Layer",
+        "unit_type": "/t"
+    },
+
+    {
+        "name": "model_layer_z-axis_overlift",
+        "user_name": "Z-axis overlift",
+        "description": "Model layer Z-axis overlift.",
+        "type": "float",
+        "default": 0.1, 
+        "category": "Model Layer",
+        "unit_type": "l"
+    },
+
+    {
+        "name": "model_layer_separation_z-axis_velocity",
+        "user_name": "Separation Z-axis velocity",
+        "description": "Model layer separation Z-axis velocity.",
+        "type": "float",
+        "default": 0.1, 
+        "category": "Model Layer",
+        "unit_type": "l/t"
+    },
+
+    {
+        "name": "model_layer_approach_slide_velocity",
+        "user_name": "Approach slide velocity",
+        "description": "Model layer approach slide velocity.",
+        "type": "float",
+        "default": 10, 
+        "category": "Model Layer",
+        "unit_type": "/t"
+    },
+
+    {
+        "name": "model_layer_approach_z-axis_velocity",
+        "user_name": "Approach Z-axis velocity",
+        "description": "Model layer approach Z-axis velocity.",
+        "type": "float",
+        "default": 0.1, 
+        "category": "Model Layer",
+        "unit_type": "l/t"
+    },
+
+    {
+        "name": "model_layer_angle_of_rotation",
+        "user_name": "Angle of rotation",
+        "description": "Model layer angle of rotation.",
+        "type": "float",
+        "default": 1.047197551196598, 
+        "category": "Model Layer",
+        "unit_type": "a"
+    },
+
+    {
+        "name": "model_layer_overpress",
+        "user_name": "Overpress",
+        "description": "Model layer overpress.",
+        "type": "float",
+        "default": 0, 
+        "category": "Model Layer",
+        "unit_type": "l"
+    },
+
+    {
+        "name": "model_layer_overpress_velocity",
+        "user_name": "Overpress velocity",
+        "description": "Model layer overpress velocity.",
+        "type": "float",
+        "default": 0.15, 
+        "category": "Model Layer",
+        "unit_type": "l/t"
+    },
+
+    {
+        "name": "model_layer_wait_after_overpress",
+        "user_name": "Wait (after overpress)",
+        "description": "Model layer wait (after overpress).",
+        "type": "float",
+        "default": 0,
+        "category": "Model Layer",
+        "unit_type": "t"
+    },
+
+    {
+        "name": "model_layer_overpress_return_velocity",
+        "user_name": "Overpress return velocity",
+        "description": "Model layer overpress return velocity.",
+        "type": "float",
+        "default": 0.15, 
+        "category": "Model Layer",
+        "unit_type": "l/t"
+    },
+
+    {
+        "name": "model_layer_separation_slide_maximum_jerk",
+        "user_name": "Separation slide maximum jerk",
+        "description": "Model layer separation slide maximum jerk.",
+        "type": "float",
+        "default": 80.80874436733745, 
+        "category": "Model Layer",
+        "unit_type": "a/ttt"
+    },
+
+    {
+        "name": "model_layer_separation_z-axis_maximum_jerk",
+        "user_name": "Separation Z-axis maximum jerk",
+        "description": "Model layer separation Z-axis maximum jerk.",
+        "type": "float",
+        "default": 0.0463,
+        "category": "Model Layer",
+        "unit_type": "l/ttt"
+    },
+
+    {
+        "name": "model_layer_approach_slide_maximum_jerk",
+        "user_name": "Approach slide maximum jerk",
+        "description": "Model layer approach slide maximum jerk.",
+        "type": "float",
+        "default": 80.80874436733745,
+        "category": "Model Layer",
+        "unit_type": "a/ttt"
+    },
+
+    {
+        "name": "model_layer_approach_z-axis_maximum_jerk",
+        "user_name": "Approach Z-axis maximum jerk",
+        "description": "Model layer approach Z-axis maximum jerk.",
+        "type": "float",
+        "default": 0.0463,
+        "category": "Model Layer",
+        "unit_type": "l/ttt"
+    }
+
+]
+

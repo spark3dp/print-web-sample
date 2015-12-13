@@ -1,0 +1,278 @@
+@import "bootstrap.less";
+@import (inline) "./bower_components/toastr/toastr.min.css";
+@import (inline) "./src/thirdparty/radialProgress/radialProgress.css";
+
+.ADSKSpark-Login {
+  height: 360px;
+  width: 360px;
+}
+
+.ADSKSpark-Login-iframe {
+  height: 360px;
+  width: 320px;
+  border: 0;
+}
+
+.ADSKSpark-avatar {
+  height: 48px;
+  width: 48px;
+  cursor: pointer;
+}
+
+.nav-avatar {
+  cursor: pointer;
+  width: 48px;
+  display: inline;
+  vertical-align: top;
+}
+
+.printer-select-dialog {
+  width: 300px;
+}
+
+.printer-select-list {
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.printer-profile-select {
+  float: left;
+  display: table-cell;
+  text-align: left;
+  padding: 4px;
+}
+
+.main {
+  min-height: 100%;
+  height: 100%
+}
+
+.editor-ui {
+  display: table-row;
+  width: 100%;
+  vertical-align: middle;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+.printer-icon {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 4px;
+}
+
+.printer-ui {
+  display: table-row;
+  text-align: left;
+  white-space: nowrap;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+.print-studio-editor {
+  width: 100%;
+}
+
+.editorPage {
+  width: 100%;
+  height: 100%;
+}
+
+.editor {
+  left: 0;
+  // height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.subway {
+  vertical-align: middle;
+  text-align: center;
+  display: table-cell;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+  white-space: nowrap;
+};
+
+.settings-advanced {
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.printer-error {
+  color: red;
+}
+
+.radial-svg {
+  height: 50px;
+  width: 50px;
+}
+
+#file-input {
+  display: none;
+}
+
+/* Base
+**********************/
+body,
+html {
+  overflow-y: auto !important;
+}
+
+body{
+  height: 100%;
+}
+
+/* Layout
+**********************/
+.vertical-center {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+.dropdown-container {
+  padding: 0;
+}
+.radial-progress-container {
+  padding: 0;
+}
+
+/* Base Components
+**********************/
+.btn {
+}
+.btn-dropdown {
+}
+.btn-dropdown:focus, .btn-dropdown:active {
+  outline: none !important;
+}
+.btn-print-studio {
+  color: darken(@textColor, 20%);
+  border-width: 2px;
+  border-color: lighten(@textColor, 15%);
+}
+.btn-print-studio--dark {
+  background-color: @backgroundColor;
+}
+.icon-printer-50x50 {
+  height: 50px;
+  width: 50px;
+}
+/* Printers Page React Components
+**********************/
+@backgroundColor: rgb(242, 242, 242);
+@textColor: rgb(159, 159, 159);
+@textSize: 18px;
+
+.PrintersPage {
+  background-color: @backgroundColor;
+  min-height: 800px;
+  padding-top: 22px;
+  padding-bottom: 720px;
+
+  .refresh {
+    margin-right: 15px;
+  }
+}
+
+.PrinterRegistrationFooter {
+  padding-bottom: 50px;
+  background-color: white;
+  color: @textColor;
+  font-size: @textSize;
+
+  a {
+    margin-top: 28px;
+    width: 120px;
+  }
+  div {
+    padding-right: 3px;
+  }
+  input {
+    border: 2px solid lighten(@textColor, 15%);
+  }
+}
+
+.PrintersList {
+  color: @textColor;
+}
+
+.PrinterListEntry {
+  margin: 15px;
+  .btn-print-studio {
+    width: 45%;
+  }
+  .btn-toolbar {
+    margin-top: 42px;
+  }
+  .btn-dropdown {
+    margin-top: 44px;
+    background-color: @backgroundColor;
+    border: none;
+  }
+  h2 {
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+  h4 {
+    margin-top: 50px;
+  }
+  h5 {
+    margin-bottom: 0;
+    margin-top: 13px;
+  }
+}
+
+.PrinterJobDetails {
+  color: darken(@textColor, 30%);
+  .job-details {
+    background-color: white;
+    margin-right: 15px;
+    min-height: 170px;
+    background-clip: content-box;
+    padding-left: 0;
+    padding-bottom: 20px;
+  }
+  .job-details .row {
+    margin-left: 1px;
+  }
+  .btn-toolbar {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 50px;
+  }
+  h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 50px;
+  }
+  h5 {
+    height: 50px;
+  }
+
+}
+
+.RadialProgressBar {
+  position: relative;
+  text-align: center;
+
+  .path {
+    stroke: #666666;
+  }
+  .trail {
+    stroke: #DFDFDF;
+  }
+  text {
+    font-size: 18px;
+    text-anchor: right;
+    margin: auto;
+    top: 0; left: 0; bottom: 0; right: 0;
+    position: absolute;
+  }
+}

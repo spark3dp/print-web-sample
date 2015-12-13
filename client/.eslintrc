@@ -1,0 +1,35 @@
+{  
+    "plugins": [
+        "react"
+    ],
+    "ecmaFeatures": {
+        "jsx": true
+    },
+    "env": {
+        "browser": true
+    },
+    "globals": {
+        "require": false,
+        "module": false,
+        "ADSKSpark": false,
+        "WebCAD": false,
+        "THREE": false,
+        "$": false,
+        "bootbox": false,
+        "d3": false,
+        "moment": false,
+        "radialProgress",
+        "React": false,
+        "ReactBootstrap": false,
+        "Reflux": false,
+        "toastr": false,
+        "Zlib": false
+    },
+    "rules": {
+        "no-console": 0,
+        "no-unused-vars": 2,
+        "no-underscore-dangle": 0,
+        "quotes": [2, "single", "avoid-escape"],
+        "yoda": 0
+    }
+}
