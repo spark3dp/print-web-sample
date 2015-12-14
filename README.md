@@ -1,6 +1,6 @@
 ## print-web-sample
 
-This sample web application demonstrates an end to end 3D printing workflow using Spark API. It takes the user through the necessary steps required to import, heal, position, support, slice, export and print a 3D model.
+This sample web application demonstrates an end-to-end 3D printing workflow using the Spark APIs. It takes the user through the necessary steps required to import, heal, position, support, slice, export and print a 3D model.
 
 ### Setup
 
